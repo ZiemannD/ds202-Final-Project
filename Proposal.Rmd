@@ -1,0 +1,31 @@
+---
+title: "Proposal"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Proposal:
+URL: https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/
+This dataset was found on the website for the National Center for Environment Information. It contains all recorded storms in all 50 states for a given year. The data also includes information such as the specific location of the storm, the damage, and the number of lives lost. I downloaded the data from 2015 to 2021. I have further modified the data to only show records of storms in Iowa. I believe that showing the storm data in Iowa specifically will help in ensuring the project is impactful to daily life. Some exploratory analysis that I wanted to perform includes questions that would address which area in Iowa has seen the most storms from 2015 to 2021, if the frequency or intensity of the storms has increased since 2015, which area has seen the most damage from storms, and which type of storm seems to be the most fatal and dangerous.
+```{r}
+library(rvest)
+library(dplyr)
+data2015 <- read.csv('StormEvents_details-ftp_v1.0_d2015_c20210803.csv.gz')
+data2016 <- read.csv('StormEvents_details-ftp_v1.0_d2016_c20210803.csv.gz')
+data2017 <- read.csv('StormEvents_details-ftp_v1.0_d2017_c20210923.csv.gz')
+data2018 <- read.csv('StormEvents_details-ftp_v1.0_d2018_c20211019.csv.gz')
+data2019 <- read.csv('StormEvents_details-ftp_v1.0_d2019_c20210803.csv.gz')
+data2020 <- read.csv('StormEvents_details-ftp_v1.0_d2020_c20211019.csv.gz')
+data2021 <- read.csv('StormEvents_details-ftp_v1.0_d2021_c20211019.csv.gz')
+
+Iowa2015 <- data2015 %>% subset(data2015$STATE =='IOWA')
+Iowa2016 <- data2016 %>% subset(data2016$STATE =='IOWA')
+Iowa2017 <- data2017 %>% subset(data2017$STATE =='IOWA')
+Iowa2018 <- data2018 %>% subset(data2018$STATE =='IOWA')
+Iowa2019 <- data2019 %>% subset(data2019$STATE =='IOWA')
+Iowa2020 <- data2020 %>% subset(data2020$STATE =='IOWA')
+Iowa2021 <- data2021 %>% subset(data2021$STATE =='IOWA')
+```
+
